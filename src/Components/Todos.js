@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Todo } from './Todo';
 import shortid from 'shortid'
+import { TodoForm } from './TodoForm';
 
 
 export const Todos = () => {
@@ -32,10 +33,12 @@ export const Todos = () => {
         )
     }
     return (
-        <div className="flex">
-            <input name="title" value={todo.title} onChange={(e) => setTodo({...todo, title: e.target.value})} />
+        <div >
+            {/* <TodoForm /> */}
+            <div style={{display:"flex", justifyContent:"center"}}>
+            <TodoForm name="title" value={todo.title} onChange={(e) => setTodo({...todo, title: e.target.value})} />
            <button onClick={handleSubmit}> add Todo</button>
-        
+            </div>
                {todos.map((todo) => {
                    return <Todo title={todo.title} onClick={() => handleToggle(todo.id)} completed={todo.completed}/>
                })}
