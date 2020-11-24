@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Todo = ({title, onClick, completed}) => {
+export const Todo = ({title, onClick, completed, onDelete}) => {
 
     return (
         <div style={{display:"flex", justifyContent:"center"}}>
@@ -10,7 +10,7 @@ export const Todo = ({title, onClick, completed}) => {
             onClick={onClick}>
                 {title}
             </div>
-            <button style={{marginLeft: 4}}> x </button>
+            <button onClick={onDelete} style={{marginLeft: 4}}> x </button>
         </div>
     )
 }

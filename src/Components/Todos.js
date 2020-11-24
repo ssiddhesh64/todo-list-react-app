@@ -1,20 +1,16 @@
 import React, { useState } from 'react'
 import { Todo } from './Todo';
-import shortid from 'shortid'
+// import shortid from 'shortid'
 import { TodoForm } from './TodoForm';
 
 
 export const Todos = () => {
 
-    const [todo, setTodo] = useState({id: shortid.generate(), title: "", completed:false});
-    const [todos, setTodos] = useState([]);
-
-    const handleSubmit = () => {
-        setTodos([
-            ...todos,
-            todo
-        ])
-        setTodo({id: shortid.generate(), title: "", completed:false});
+    const [todos, setTodos] = useState([]);    
+    const addTodo = (todo) => {
+        console.log(todo)
+        console.log(todos)
+        setTodos([todo, ...todos])
     }
 
     const handleToggle = (id) => {
@@ -32,16 +28,16 @@ export const Todos = () => {
             })
         )
     }
+    const handleDeleteTodo = (id) => {
+        setTodos(todos.filter((todo) => (todo.id !== id)));
+    }
+    
     return (
         <div >
-            {/* <TodoForm /> */}
-            <div style={{display:"flex", justifyContent:"center"}}>
-            <TodoForm name="title" value={todo.title} onChange={(e) => setTodo({...todo, title: e.target.value})} />
-           <button onClick={handleSubmit}> add Todo</button>
-            </div>
-               {todos.map((todo) => {
-                   return <Todo title={todo.title} onClick={() => handleToggle(todo.id)} completed={todo.completed}/>
-               })}
+            <TodoForm onSubmit={addTodo} />
+            {todos.map((todo) => {
+                return <Todo onDelete={() => handleDeleteTodo(todo.id)} key={todo.id} title={todo.text} onClick={() => handleToggle(todo.id)} completed={todo.completed}/>
+            })}
 
         </div>
     )
