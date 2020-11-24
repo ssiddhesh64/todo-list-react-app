@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Dropdown } from './Dropdown';
 import { Todo } from './Todo';
 // import shortid from 'shortid'
 import { TodoForm } from './TodoForm';
@@ -6,7 +7,21 @@ import { TodoForm } from './TodoForm';
 
 export const Todos = () => {
 
-    const [todos, setTodos] = useState([]);    
+    let currentTodos = []
+    const [todos, setTodos] = useState([]);
+    const show = ["all", "completed", "incomplete"]
+    const [showTodo, setShowTodo] = useState("all");  
+    
+    if(showTodo==="all"){
+        currentTodos = todos
+    }
+    else if(showTodo==="completed"){
+        currentTodos = todos.filter(todo => todo.completed === true)
+    }
+    else {
+        currentTodos = todos.filter(todo => todo.completed === false)
+    }
+
     const addTodo = (todo) => {
         console.log(todo)
         console.log(todos)
@@ -32,13 +47,16 @@ export const Todos = () => {
         setTodos(todos.filter((todo) => (todo.id !== id)));
     }
     
+    const handleChange = (value) => {
+        setShowTodo(value)
+    }
     return (
         <div >
+            <Dropdown value={showTodo} values={show} onChange={handleChange}/>
             <TodoForm onSubmit={addTodo} />
-            {todos.map((todo) => {
+            {currentTodos.map((todo) => {
                 return <Todo onDelete={() => handleDeleteTodo(todo.id)} key={todo.id} title={todo.text} onClick={() => handleToggle(todo.id)} completed={todo.completed}/>
             })}
-
         </div>
     )
 }
