@@ -50,6 +50,10 @@ export const Todos = () => {
     const handleChange = (value) => {
         setShowTodo(value)
     }
+
+    const handleRemoveComplete = () => {
+        setTodos(todos.filter((todo) => (todo.completed === false)))
+    }
     return (
         <div >
             <Dropdown value={showTodo} values={show} onChange={handleChange}/>
@@ -57,6 +61,10 @@ export const Todos = () => {
             {currentTodos.map((todo) => {
                 return <Todo onDelete={() => handleDeleteTodo(todo.id)} key={todo.id} title={todo.text} onClick={() => handleToggle(todo.id)} completed={todo.completed}/>
             })}
+
+            <button className="mt-4" type="button" onClick={handleRemoveComplete}>
+                Remove completed
+            </button>
         </div>
     )
 }
