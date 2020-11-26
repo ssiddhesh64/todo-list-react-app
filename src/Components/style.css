@@ -1,0 +1,12 @@
+
+
+.toast-show{
+    height: 100%;
+    width: 100%;
+    background: gray;
+    position: relative;
+    /* z-index: 1; */
+}
+.toast-hide{
+   display: none;
+}
