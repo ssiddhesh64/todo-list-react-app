@@ -62,9 +62,17 @@ export const Todos = () => {
                 return <Todo onDelete={() => handleDeleteTodo(todo.id)} key={todo.id} title={todo.text} onClick={() => handleToggle(todo.id)} completed={todo.completed}/>
             })}
 
-            <button className="mt-4" type="button" onClick={handleRemoveComplete}>
+            {currentTodos.some(todo => todo.completed) ? (
+            <div>
+                <button onClick={handleRemoveComplete}>
+                remove complete 
+                </button>
+            </div>
+            ) : null}
+
+            {/* <button className="mt-4" type="button" onClick={handleRemoveComplete}>
                 Remove completed
-            </button>
+            </button> */}
         </div>
     )
 }

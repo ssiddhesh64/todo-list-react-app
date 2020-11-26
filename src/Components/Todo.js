@@ -10,7 +10,7 @@ export const Todo = ({title, onClick, completed, onDelete}) => {
             onClick={onClick}>
                 {title}
             </div>
-            <button onClick={onDelete} style={{marginLeft: 4}}> x </button>
+            <button onClick={onDelete}> x </button>
         </div>
     )
 }
