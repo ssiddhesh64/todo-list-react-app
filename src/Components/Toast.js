@@ -1,18 +1,14 @@
-import React from 'react'
-import './style.css'
+import React from "react";
+import { PopUp } from "./PopUp";
+import "./PopUp.css";
 
-export const Toast = ({show, title, description}) => {
-    let ss = show ? "toast-show" : "toast-hide"
+export const Toast = ({ show, title, description }) => {
+  if (show) {
     return (
-        <div className={ss}>
-            {/* <div className="toast-body"> */}
-                {/* <div className="toast-title"> */}
-                    <h3>{title}</h3>
-                {/* </div> */}
-                {/* <div className="toast-desc"> */}
-                    {description}
-                {/* </div> */}
-            {/* </div> */}
-        </div>
-    )
-}
+      <PopUp>
+        <h3 className="heading">{title}</h3>
+        <p className="desc">{description}</p>
+      </PopUp>
+    );
+  } else return null;
+};
