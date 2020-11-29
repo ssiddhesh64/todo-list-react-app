@@ -1,0 +1,41 @@
+.container {
+  padding-top: 10px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 10fr 1fr;
+  grid-template-rows: 1fr 10fr 1fr;
+  grid-template-areas:
+    "dropdown todoform todoform"
+    ". todolist ."
+    ". todofooter .";
+}
+
+.todoform {
+  grid-area: todoform;
+}
+
+.form {
+  display: flex;
+}
+
+.dropdown {
+  grid-area: dropdown;
+  margin-right: 20px;
+}
+
+.todolist {
+  grid-area: todolist;
+}
+
+.todo-footer {
+  grid-area: todofooter;
+  justify-self: center;
+}
+
+.searchbox {
+  /* flex: 10; */
+}
+
+.addtodo {
+  margin-left: 20px;
+}

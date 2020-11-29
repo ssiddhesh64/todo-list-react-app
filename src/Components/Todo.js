@@ -1,5 +1,6 @@
 import React from "react";
 import "./todoStyle.css";
+import "./stylegrid.css";
 
 export const Todo = ({ title, onClick, completed, onDelete }) => {
   return (

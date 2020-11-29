@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Dropdown } from "./Dropdown";
 import { Todo } from "./Todo";
 import { TodoForm } from "./TodoForm";
-import "./style.css";
+import "./stylegrid.css";
+
 export const Todos = () => {
   let currentTodos = [];
   const [todos, setTodos] = useState([]);
@@ -50,11 +51,13 @@ export const Todos = () => {
   };
   return (
     <div className="container">
-      <div className="todo-top">
+      <div className="dropdown">
         <Dropdown value={showTodo} values={show} onChange={handleChange} />
+      </div>
+      <div className="todoform">
         <TodoForm onSubmit={addTodo} />
       </div>
-      <div className="todo-list">
+      <div className="todolist">
         {currentTodos.map((todo) => {
           return (
             <Todo

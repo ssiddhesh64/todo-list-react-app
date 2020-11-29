@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import shortid from "shortid";
 import { Toast } from "./Toast";
+import "./stylegrid.css";
 
 export const TodoForm = ({ onSubmit }) => {
   const [todo, setTodo] = useState("");
@@ -24,15 +25,16 @@ export const TodoForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <input
         name="text"
+        className="searchbox"
         ref={inputval}
         value={todo}
         onChange={handleChange}
         placeholder="add todo..."
       />
-      <button> add Todo</button>
+      <button className="addtodo"> add Todo</button>
       <Toast
         show={show}
         title="Todo cannot be empty"
