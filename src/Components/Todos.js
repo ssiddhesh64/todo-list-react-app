@@ -58,14 +58,14 @@ export const Todos = () => {
         <TodoForm onSubmit={addTodo} />
       </div>
       <div className="todolist">
-        {currentTodos.map((todo) => {
+        {currentTodos.map((currentTodo) => {
           return (
             <Todo
-              onDelete={() => handleDeleteTodo(todo.id)}
-              key={todo.id}
-              title={todo.text}
-              onClick={() => handleToggle(todo.id)}
-              completed={todo.completed}
+              onDelete={() => handleDeleteTodo(currentTodo.id)}
+              key={currentTodo.id}
+              title={currentTodo.text}
+              onClick={() => handleToggle(currentTodo.id)}
+              completed={currentTodo.completed}
             />
           );
         })}
