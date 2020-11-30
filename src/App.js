@@ -2,7 +2,7 @@ import { Todos } from "./Components/Todos";
 
 function App() {
   return (
-    <div>
+    <div className="home">
       <Todos />
     </div>
   );

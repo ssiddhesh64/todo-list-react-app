@@ -54,7 +54,7 @@ export const Todos = () => {
       <div className="dropdown">
         <Dropdown value={showTodo} values={show} onChange={handleChange} />
       </div>
-      <div className="todoform">
+      <div className="todoForm">
         <TodoForm onSubmit={addTodo} />
       </div>
       <div className="todolist">
@@ -70,7 +70,6 @@ export const Todos = () => {
           );
         })}
       </div>
-
       <div className="todo-footer">
         {currentTodos.some((todo) => todo.completed) ? (
           <button onClick={handleRemoveComplete}>remove complete</button>

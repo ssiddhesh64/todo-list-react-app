@@ -34,7 +34,7 @@ export const TodoForm = ({ onSubmit }) => {
         onChange={handleChange}
         placeholder="add todo..."
       />
-      <button className="addtodo"> add Todo</button>
+      <button className="addTodo"> add Todo</button>
       <Toast
         show={show}
         title="Todo cannot be empty"

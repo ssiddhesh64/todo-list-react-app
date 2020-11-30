@@ -4,8 +4,15 @@ import "./stylegrid.css";
 
 export const Todo = ({ title, onClick, completed, onDelete }) => {
   return (
-    <div className="todo">
+    <div className="todoList">
+      <input
+        type="checkbox"
+        className="todoCheckBox"
+        checked={completed}
+        onChange={onClick}
+      ></input>
       <div
+        className="todoTitle"
         style={{
           textDecoration: completed ? "line-through" : null,
         }}
@@ -13,7 +20,9 @@ export const Todo = ({ title, onClick, completed, onDelete }) => {
       >
         {title}
       </div>
-      <button onClick={onDelete}> x </button>
+      <div className="todoCloseButton">
+        <button onClick={onDelete}> x </button>
+      </div>
     </div>
   );
 };
