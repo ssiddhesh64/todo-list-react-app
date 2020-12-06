@@ -6,8 +6,8 @@ export const Toast = ({ show, title, description }) => {
   if (show) {
     return (
       <PopUp>
-        <h3 className="heading">{title}</h3>
-        <p className="desc">{description}</p>
+        <h3>{title}</h3>
+        <div>{description}</div>
       </PopUp>
     );
   } else return null;
